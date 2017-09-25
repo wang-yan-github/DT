@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0116)http://218.3.177.181:8080/DM/portal/bzgf/bzgf_listAll.jsp?userAcct=sys@cnliren.cn&colorStyle=default&userXzqhdm=null -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./jquery-1.8.3.min.js.下载"></script>
+<script type="text/javascript" src="./jquery.easyui.min.js(1).下载"></script>
+<script type="text/javascript" src="./easyui-lang-zh_CN.js(1).下载" charset="UTF-8"></script>
+<script type="text/javascript" src="./datagrid-detailview.js.下载" charset="UTF-8"></script>
+<script type="text/javascript" src="./util.js(1).下载"></script>
+<script type="text/javascript" src="./json2.js(1).下载"></script>
+<script type="text/javascript" src="./WdatePicker.js.下载" charset="UTF-8"></script><link href="./WdatePicker.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./jquery.nicescroll.min.js.下载"></script>
+
+<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./font-awesome.min(1).css">
+<link rel="stylesheet" type="text/css" href="./button.css">
+<link rel="stylesheet" type="text/css" href="./easyui(1).css">
+<link rel="stylesheet" type="text/css" href="./icon(1).css">
+<link rel="stylesheet" type="text/css" href="./main.css">
+<link rel="stylesheet" type="text/css" href="./default.css" id="cssFile">
+<script type="text/javascript" src="./cookies.js(1).下载"></script>
+<script type="text/javascript" src="./common.js.下载"></script>
+<script type="text/javascript">
+	$(function(){
+		var colorStyle='null';
+		if(colorStyle!=""&&colorStyle!="null"&&colorStyle!=null){
+			$("#cssFile").attr("href", "/DM/css/" + colorStyle + ".css");
+		}
+	});
+</script>
+
+
+
+	
+		
+		<title>标准规范</title>
+		<script type="text/javascript"><!--
+		var isLoad=false;  //判断查询条件信息是否加载
+		$(function(){
+			$('#dataList').datagrid({
+				//title:' 标准规范列表',
+				pageList:[10,20,30,40,50],
+				fitColumns:true,
+				height:'auto',
+				nowrap: false,
+				striped: true,
+				collapsible:false,
+				scrollbarSize:0,
+				url:'/DM/portal/queryBzgf.do',
+				remoteSort: false,
+				idField:'id',
+				rownumbers: true,
+				pagination:true,//分页选项
+				singleSelect:false, //设置为true,则为单选模式，只能选中一行。
+				columns:[[
+					{field:'select',checkbox:true},
+					{field:'id',title:'序号',width:20,align:'center',hidden:true},
+					{field:'bzgfmc',title:'标准规范名称',width:150,align:'left',halign:'center',sortable:'true',
+						formatter:function(value,rowData,rowIndex){
+							return "<div style='overflow:hidden;white-space:nowrap;text-overflow:ellipsis;' title='"+value+"'>"+value+"</div>";
+				        }
+					},
+					{field:'bzgfdm',title:'标准规范代码',width:100,align:'left',halign:'center',sortable:'true',
+						formatter:function(value,rowData,rowIndex){
+							return "<div style='overflow:hidden;white-space:nowrap;text-overflow:ellipsis;' title='"+value+"'>"+value+"</div>";
+				        }
+					},
+					{field:'bzgfms',title:'标准规范描述',width:200,align:'left',halign:'center',
+						formatter:function(value,rowData,rowIndex){
+							return "<div style='overflow:hidden;white-space:nowrap;text-overflow:ellipsis;' title='"+value+"'>"+value+"</div>";
+				        }
+					},
+					{field:'sslbmc',title:'所属类别',width:80,align:'center',sortable:'true'},
+					{field:'zhxgsj',title:'最后修改日期',width:80,align:'center',sortable:'true',
+						formatter:function(value,rowData,rowIndex){
+							if(value!=null){
+								return value.substr(0,10);
+							}
+				        }
+					},
+					{field:'option',title:'操作功能',width:80,align:'center',formatter:function(val, row, index) {
+						var str = "";
+						str += "<div style='text-align:center;display: inline-block;'>";
+						str += "<i class='fa fa-file-text-o fa-lg icon-btn ' title='查看' onclick=\"openWin('" + row.id + "')\" ></i>";
+						str += "<i class='fa fa-pencil-square-o fa-lg icon-btn ' title='编辑' onclick=\"editWin('" + row.id + "')\" ></i>";
+						str += "<i class='fa fa-trash-o fa-lg icon-btn ' title='删除' onclick=\"deleteData('" + row.id + "')\" ></i>";
+						str += "<i class='fa fa-cog fa-lg icon-btn ' title='配置数据元分类' onclick=\"openSjyfl('" + row.id + "')\" ></i>";
+						str += "</div>";
+						return str;
+					}}				
+				]],
+				onLoadSuccess:function(data){
+			        // 读取查询条件信息
+			        if(!isLoad){
+			        	//填充下拉列表
+			        	isLoad=true;
+						$.post(
+							'/DM/portal/querySslb.do',
+							function(data) {
+								data.unshift({ "dmmc": "全部", "dmbh": "0" });
+								$('#sslb').combobox({
+									editable:false,
+									valueField:'dmbh',
+									textField:'dmmc',
+									data:data,
+									formatter: function(row){
+										//防止显示字段过长被截断时，增加提示功能
+										var opts = $(this).combobox('options');
+										return "<div title='"+row[opts.textField]+"'>"+row[opts.textField]+"</div>";
+									}
+								});
+								$('#sslb').combobox("select",0);
+							},"json"
+						);
+			        }
+				},
+				toolbar:[{
+       				text:'<i class="fa fa-plus fa-lg"></i>&nbsp新建标准规范',
+       				handler:function(){
+       					openWin('add');
+       				}},'-',{
+					text:'<i class="fa fa-minus fa-lg"></i>&nbsp批量删除',
+					handler:function(){
+						batchDeleteBzgf();
+					}},'-',{
+      				text:'<i class="fa fa-cloud-upload fa-lg"></i>&nbsp导入标准规范',
+					handler: function(){
+						$("#uploadWin").dialog('open');
+					}},'-',{
+      				text:'<i class="fa fa-cloud-download fa-lg"></i>&nbsp导出标准规范',
+					handler: function(){
+						document.location.href="/DM/portal/exportAllBzgf.do"; 
+					}},'-',{
+      				text:'<i class="fa fa-download fa-lg"></i>&nbsp下载标准规范模板',
+					handler: function(){
+						document.location.href="/DM/portal/downloadTemplate.do"; 
+					}}
+      				
+          		]
+			});
+			//添加窗口的自适应
+			addWindowEvent('dataList');
+		});
+		
+		//新增或查看数据窗口
+		function openWin(t){
+			if(t == "add"){
+				$("#myWin").dialog({
+					width:560,
+					height:360,
+					top:0,
+					title:'新建标准规范',
+					onBeforeClose:function(){
+	    				$("#panel").attr("src","");
+					}
+				});
+				$("#panel").attr("src","bzgf_add.jsp");
+			} else {
+				$("#myWin").dialog({
+					width:560,
+					height:360,
+					title:'查看标准规范',
+					onBeforeClose:function(){
+	    				$("#panel").attr("src","");
+					}
+				});
+				$("#panel").attr("src","bzgf_detail.jsp?id=" + t);
+			}
+            $("#myWin").dialog('open');
+		}
+		
+		//修改数据窗口
+		function editWin(t){
+			$("#myWin").dialog({
+				width:560,
+				height:360,
+				title:'编辑标准规范',
+				onBeforeClose:function(){
+    				$("#panel").attr("src","");
+				}
+			});
+			$("#myWin").dialog('open');
+			$("#panel").attr("src","bzgf_add.jsp?id=" + t);
+		}
+		
+		//详细数据窗口
+		function detail(){
+            $("#dataDetail").dialog('open');
+		}
+		
+		//批量删除
+		function batchDeleteBzgf(){
+			var list = $('#dataList').datagrid('getSelections');
+			if(list.length > 0) {
+				$.messager.confirm('提示信息', '您确定删除所有勾选的标准规范么?</br>注：与标准规范校验建立关联的标准规范将不会删除。', function(flag){
+					if (flag){
+						var listString = JSON.stringify(list);
+						$.ajax({
+						type: "POST",
+						url: " /DM/portal/batchDeleteBzgf.do",   
+						data: {list: listString},
+						success: function(data){
+								if(data == "fail") {
+									$.messager.alert("提示","数据库异常，请稍后再试。","info");
+								} else if(data == "success"){
+									$.messager.alert("提示","批量删除成功!","info");
+									$('#dataList').datagrid('reload');
+								} else {
+									$.messager.show({
+										showType: "fade",
+										title: "删除结果",
+										msg: data,
+										height: 'auto',
+										width: 360,
+										style: {
+											right:''
+										}
+									});
+									$('#dataList').datagrid('reload');
+								}
+	          				},
+	          			error: function(xhr) {
+								//$.messager.alert("提示","错误：" + xhr.status + " " + xhr.statusText,"error");   
+							}  
+	          			});
+					}
+				});
+			} else {
+				$.messager.alert("提示","您未选取标准规范，请选择标准规范。","info");
+			}
+		}
+				
+		//删除数据
+		function deleteData(add){            
+           $.messager.confirm('删除','确定要删除此信息么?',function(r){
+           		if(r){
+           			$.ajax({   
+						type: "POST",
+						url: " /DM/portal/deleteBzgfById.do?id=" + add,   
+						dataType: "text",
+						success: function(data){
+							if(data == "fail") {
+								$.messager.alert('警告','数据库异常，请检查数据库设置是否正确。','error');
+							} else if (data == "exist") {
+								$.messager.alert('警告','标准规范存在相关校验，请先去除后再删除。','warning');
+							}
+           					$('#dataList').datagrid('reload'); 
+           				}
+           			});
+           		}
+           });
+		}
+		
+		//配置数据元分类
+		function openSjyfl(id,sname) {
+			document.location.href="sjyfl_listAll.jsp?bid="+id;
+		}
+		
+		//关闭窗口
+		function allClose() {
+			$("#myWin").dialog('close');
+		}
+		
+		//刷新列表
+		function refresh() {
+			$("#dataList").datagrid("reload");
+		}
+		
+		//查询方法
+		function search(){
+			var queryParams = {};
+			var keywords=$.trim($("#bzgfmc").val());
+			$("#bzgfmc").val(keywords);
+			if (keywords != "") {
+				queryParams["bzgf.bzgfmc"] = keywords;
+			}
+			if( $('#sslb').combobox('getValue') != 0) {
+				queryParams["bzgf.sslb"] = $('#sslb').combobox('getValue');
+			} 
+			$("#dataList").datagrid({
+				"queryParams":queryParams,
+				"pageNumber":1
+			});
+		}
+		
+		//清空
+		function clearAll(){
+			$("#bzgfmc").val("");
+			$("#bzgfdm").val("");
+			$('#sslb').combobox('select', 0);
+		}
+		
+		//IE8的上传方法
+		function isIEUpload() {
+	    	var fileName = $('#fileToUpload').val();
+    		var file_typename = fileName.substring(fileName.lastIndexOf('.'), fileName.length);
+    		if (file_typename == '.xlsx') {//这里限定上传文件文件类型
+	            if (fileName) {
+	                $("#uploadFile").linkbutton('enable');
+	            }
+	        } else {
+	            $("#uploadFile").linkbutton('disable');
+	            document.getElementById('fileName').innerHTML = "<span style='color:Red'>错误提示:上传文件格式应该是.xlsx后缀而不应该是" + file_typename + "的文件,请重新选择文件</span>";
+	        }
+		}
+		
+		//非IE8的上传方法
+		function notIEUpload() {
+			var file = null;
+	    	var fileName = null;
+    		file = document.getElementById('fileToUpload').files[0];
+    		fileName = file.name;
+	    	
+	    	var fileSize;
+    		fileSize = file.size;
+	        
+	        var file_typename = fileName.substring(fileName.lastIndexOf('.'), fileName.length);
+	    	
+	    	if(fileSize < 2*1024*1024) {
+		    	if (file_typename == '.xlsx') {//这里限定上传文件文件类型
+		            if (file) {
+		                $("#uploadFile").linkbutton('enable');
+		            }
+		        } else {
+		            $("#uploadFile").linkbutton('disable');
+		            document.getElementById('fileName').innerHTML = "<span style='color:Red'>错误提示:上传文件格式应该是.xlsx后缀而不应该是" + file_typename + "的文件,请重新选择文件</span>";
+		        }
+	    	} else {
+	    		$("#uploadFile").linkbutton('disable');
+		        document.getElementById('fileName').innerHTML = "<span style='color:Red'>错误提示:上传文件超过2MB,请重新选择文件</span>";
+	    	}
+		}
+		
+		//上传时判断
+	    function fileSelected() {
+	    	$("#fileName").html("");
+	    	if (navigator.userAgent.indexOf("MSIE 8.0") != -1) {
+	    		isIEUpload();
+	    	} else {
+	    		notIEUpload();
+	    	}
+	    }
+	
+		//上传文件
+	    function uploadFile() {
+	    	$("#upload").form({
+	    		onSubmit:function(){
+	    			$.messager.progress({
+						text:'导入中，请耐心等待...'
+					});	
+	    		},
+	    		success:function(data){
+ 	    			data = eval('(' + data + ')');
+	    			var result = data.result;
+	    			$.messager.progress('close');
+	    			$('#messager').dialog({
+						title: '提示信息',
+						width: 400,
+						height: 200,
+						content: result,
+						onBeforeClose: function () {
+							if('导入成功！' == result) {
+								$('#uploadWin').dialog('close');
+							}
+						}
+					});
+	    			refresh();
+			    },
+			    error: function(xhr) {
+			    	//$.messager.alert("提示","错误：" + xhr.status + " " + xhr.statusText,"error");
+			    	$.messager.progress('close');   
+				}
+	    	});
+	    	$("#upload").submit();
+	    }
+	    
+	    $(document).ready(function() {
+	        $("#bzgfmc").keypress(function (e) {
+				var keyCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+					if (keyCode == 13){
+						search();
+					}
+			});
+			
+			$("#cds-search").click(function(){
+				search();
+			});
+			$("#cds-reset").click(function(){
+				clearAll();
+			});
+		});
+	    
+	--></script>
+</head>
+<body style="overflow: hidden;">
+	<div>
+		<table style="width: 100%;">
+			<tbody><tr>
+				<td>
+					<table style="width: 100%;height:60px;">
+						<tbody><tr valign="middle">
+							<td width="60" align="right">
+								<span style="display: inline-block;width:60px">关键字：</span>
+							</td>
+							<td width="200">
+								<input class="keyword-input" type="text" id="bzgfmc" value="" placeholder="请输入关键字...">
+							</td>
+							<td width="75" align="right">
+								<span style="display: inline-block;width:70px">所属类别：</span>
+							</td>
+							<td width="130" id="lb-combo">
+								<select id="sslb" class="easyui-combobox combobox-f combo-f textbox-f" style="width: 130px; display: none;" editable="false">
+								</select><span class="textbox combo" style="width: 130px; height: 28px;"><span class="textbox-addon textbox-addon-right" style="right: 0px;"><a href="javascript:void(0)" class="textbox-icon combo-arrow" icon-index="0" style="width: 18px; height: 26px;"></a></span><input type="text" class="textbox-text textbox-text-readonly validatebox-text" autocomplete="off" readonly="readonly" placeholder="" style="margin-left: 0px; margin-right: 18px; padding-top: 4px; padding-bottom: 4px; width: 110px;"><input type="hidden" class="textbox-value" name="" value="0"></span>
+							</td>
+							<td width="90" align="right">
+								<a href="javascript:void(0);" id="cds-search" class="cds-button">搜索</a>
+							</td>
+							<td>
+								<a href="javascript:void(0);" id="cds-reset" class="cds-button">重置</a>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="panel datagrid" style="width: 920px;"><div class="datagrid-wrap panel-body panel-body-noheader" title="" style="width: 920px; height: 459px;"><div class="datagrid-toolbar"><table cellspacing="0" cellpadding="0"><tbody><tr><td><a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><i class="fa fa-plus fa-lg"></i>&nbsp;新建标准规范</span></span></a></td><td><div class="datagrid-btn-separator"></div></td><td><a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><i class="fa fa-minus fa-lg"></i>&nbsp;批量删除</span></span></a></td><td><div class="datagrid-btn-separator"></div></td><td><a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><i class="fa fa-cloud-upload fa-lg"></i>&nbsp;导入标准规范</span></span></a></td><td><div class="datagrid-btn-separator"></div></td><td><a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><i class="fa fa-cloud-download fa-lg"></i>&nbsp;导出标准规范</span></span></a></td><td><div class="datagrid-btn-separator"></div></td><td><a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain" group="" id=""><span class="l-btn-left"><span class="l-btn-text"><i class="fa fa-download fa-lg"></i>&nbsp;下载标准规范模板</span></span></a></td></tr></tbody></table></div><div class="datagrid-view" style="width: 918px; height: 393px;"><div class="datagrid-view1" style="width: 26px;"><div class="datagrid-header" style="width: 26px; height: 31px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 31px;"><tbody><tr class="datagrid-header-row"><td rowspan="0"><div class="datagrid-header-rownumber"></div></td></tr></tbody></table></div></div><div class="datagrid-body" style="width: 26px; margin-top: 0px; height: 362px;"><div class="datagrid-body-inner"><table class="datagrid-btable" cellspacing="0" cellpadding="0" border="0"><tbody><tr id="datagrid-row-r1-1-0" datagrid-row-index="0" class="datagrid-row" style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">1</div></td></tr><tr id="datagrid-row-r1-1-1" datagrid-row-index="1" class="datagrid-row datagrid-row-alt" style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">2</div></td></tr><tr id="datagrid-row-r1-1-2" datagrid-row-index="2" class="datagrid-row  " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">3</div></td></tr><tr id="datagrid-row-r1-1-3" datagrid-row-index="3" class="datagrid-row datagrid-row-alt" style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">4</div></td></tr><tr id="datagrid-row-r1-1-4" datagrid-row-index="4" class="datagrid-row" style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">5</div></td></tr><tr id="datagrid-row-r1-1-5" datagrid-row-index="5" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">6</div></td></tr><tr id="datagrid-row-r1-1-6" datagrid-row-index="6" class="datagrid-row  " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">7</div></td></tr><tr id="datagrid-row-r1-1-7" datagrid-row-index="7" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">8</div></td></tr><tr id="datagrid-row-r1-1-8" datagrid-row-index="8" class="datagrid-row  " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">9</div></td></tr><tr id="datagrid-row-r1-1-9" datagrid-row-index="9" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">10</div></td></tr><tr id="datagrid-row-r1-1-10" datagrid-row-index="10" class="datagrid-row  " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">11</div></td></tr><tr id="datagrid-row-r1-1-11" datagrid-row-index="11" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td class="datagrid-td-rownumber"><div class="datagrid-cell-rownumber">12</div></td></tr></tbody></table></div></div><div class="datagrid-footer" style="width: 26px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><div class="datagrid-view2" style="width: 892px;"><div class="datagrid-header" style="width: 892px; height: 31px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 31px;"><tbody><tr class="datagrid-header-row"><td field="select"><div class="datagrid-header-check"><input type="checkbox"></div></td><td field="id" style="display: none;"><div class="datagrid-cell datagrid-cell-c1-id" style="text-align: center;"><span>序号</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="bzgfmc"><div class="datagrid-cell datagrid-cell-c1-bzgfmc" style="text-align: center;"><span>标准规范名称</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="bzgfdm"><div class="datagrid-cell datagrid-cell-c1-bzgfdm" style="text-align: center;"><span>标准规范代码</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="bzgfms"><div class="datagrid-cell datagrid-cell-c1-bzgfms" style="text-align: center;"><span>标准规范描述</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="sslbmc"><div class="datagrid-cell datagrid-cell-c1-sslbmc" style="text-align: center;"><span>所属类别</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="zhxgsj" class="datagrid-header-over"><div class="datagrid-cell datagrid-cell-c1-zhxgsj" style="text-align: center;"><span>最后修改日期</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="option"><div class="datagrid-cell datagrid-cell-c1-option" style="text-align: center;"><span>操作功能</span><span class="datagrid-sort-icon">&nbsp;</span></div></td></tr></tbody></table></div></div><div class="datagrid-body" style="width: 892px; margin-top: 0px; height: 362px; overflow: hidden; outline: none;" tabindex="5000"><table class="datagrid-btable" cellspacing="0" cellpadding="0" border="0"><tbody><tr id="datagrid-row-r1-2-0" datagrid-row-index="0" class="datagrid-row" style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1F41280FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_道路运输信息基础数据元">交通部697标准规范_道路运输信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T  697.7-2007">JT/T  697.7-2007</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_道路运输信息基础数据元">交通部697标准规范_道路运输信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-04-01</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1F41280FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1F41280FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1F41280FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1F41280FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-1" datagrid-row-index="1" class="datagrid-row datagrid-row-alt" style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1EBE780FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_交通统计信息基础数据元分类">交通部697标准规范_交通统计信息基础数据元分类</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.10-2009">JT/T 697.10-2009</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_交通统计信息基础数据元分类">交通部697标准规范_交通统计信息基础数据元分类</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-04-14</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1EBE780FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1EBE780FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1EBE780FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1EBE780FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-2" datagrid-row-index="2" class="datagrid-row  " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1E76880FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船舶检验信息基础数据元">交通部697标准规范_船舶检验信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.11-2009">JT/T 697.11-2009</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船舶检验信息基础数据元">交通部697标准规范_船舶检验信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-09-16</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1E76880FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1E76880FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1E76880FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1E76880FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-3" datagrid-row-index="3" class="datagrid-row datagrid-row-alt" style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1E58B80FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船载客货信息基础数据元">交通部697标准规范_船载客货信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.12-2009">JT/T 697.12-2009</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船载客货信息基础数据元">交通部697标准规范_船载客货信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-09-18</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1E58B80FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1E58B80FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1E58B80FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1E58B80FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-4" datagrid-row-index="4" class="datagrid-row" style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1F02F80FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_收费公路信息基础数据元">交通部697标准规范_收费公路信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.13-2009">JT/T 697.13-2009</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_收费公路信息基础数据元">交通部697标准规范_收费公路信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-04-10</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1F02F80FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1F02F80FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1F02F80FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1F02F80FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-5" datagrid-row-index="5" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1F9F980FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_公路基础信息数据元">交通部697标准规范_公路基础信息数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.2-2007">JT/T 697.2-2007</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_公路基础信息数据元">交通部697标准规范_公路基础信息数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-09-12</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1F9F980FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1F9F980FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1F9F980FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1F9F980FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-6" datagrid-row-index="6" class="datagrid-row  " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1F89F80FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_港口信息基础数据元">交通部697标准规范_港口信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.3-2007">JT/T 697.3-2007</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_港口信息基础数据元">交通部697标准规范_港口信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-09-12</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1F89F80FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1F89F80FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1F89F80FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1F89F80FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-7" datagrid-row-index="7" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1F77F80FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_航道信息基础数据元">交通部697标准规范_航道信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.4-2007">JT/T 697.4-2007</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_航道信息基础数据元">交通部697标准规范_航道信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-04-02</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1F77F80FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1F77F80FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1F77F80FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1F77F80FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-8" datagrid-row-index="8" class="datagrid-row  " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1FAFF80FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船舶信息基础数据元">交通部697标准规范_船舶信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.5-2011">JT/T 697.5-2011</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船舶信息基础数据元">交通部697标准规范_船舶信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2013-11-14</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1FAFF80FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1FAFF80FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1FAFF80FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1FAFF80FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-9" datagrid-row-index="9" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1F26E80FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船员信息基础数据元">交通部697标准规范_船员信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.6-2006">JT/T 697.6-2006</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_船员信息基础数据元">交通部697标准规范_船员信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-04-09</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1F26E80FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1F26E80FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1F26E80FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1F26E80FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-10" datagrid-row-index="10" class="datagrid-row  " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1F0BF80FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_水路运输信息基础数据元">交通部697标准规范_水路运输信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.8-2008">JT/T 697.8-2008</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_水路运输信息基础数据元">交通部697标准规范_水路运输信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-04-10</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1F0BF80FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1F0BF80FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1F0BF80FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1F0BF80FCE050007F010012AF&#39;)"></i></div></div></td></tr><tr id="datagrid-row-r1-2-11" datagrid-row-index="11" class="datagrid-row datagrid-row-alt " style="height: 25px;"><td field="select"><div style="" class="datagrid-cell-check"><input type="checkbox" name="select" value=""></div></td><td field="id" style="display:none;"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-id">08E6CFA1E9E880FCE050007F010012AF</div></td><td field="bzgfmc"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfmc"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_建设项目信息基础数据元">交通部697标准规范_建设项目信息基础数据元</div></div></td><td field="bzgfdm"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfdm"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="JT/T 697.9-2009">JT/T 697.9-2009</div></div></td><td field="bzgfms"><div style="text-align:left;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-bzgfms"><div style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" title="交通部697标准规范_建设项目信息基础数据元">交通部697标准规范_建设项目信息基础数据元</div></div></td><td field="sslbmc"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-sslbmc">交通部标准</div></td><td field="zhxgsj"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-zhxgsj">2014-04-21</div></td><td field="option"><div style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-option"><div style="text-align:center;display: inline-block;"><i class="fa fa-file-text-o fa-lg icon-btn " title="查看" onclick="openWin(&#39;08E6CFA1E9E880FCE050007F010012AF&#39;)"></i><i class="fa fa-pencil-square-o fa-lg icon-btn " title="编辑" onclick="editWin(&#39;08E6CFA1E9E880FCE050007F010012AF&#39;)"></i><i class="fa fa-trash-o fa-lg icon-btn " title="删除" onclick="deleteData(&#39;08E6CFA1E9E880FCE050007F010012AF&#39;)"></i><i class="fa fa-cog fa-lg icon-btn " title="配置数据元分类" onclick="openSjyfl(&#39;08E6CFA1E9E880FCE050007F010012AF&#39;)"></i></div></div></td></tr></tbody></table></div><div class="datagrid-footer" style="width: 892px;"><div class="datagrid-footer-inner" style="display: none;"></div></div><div id="ascrail2001" class="nicescroll-rails" style="width: 5px; z-index: auto; cursor: default; position: absolute; top: 31px; left: 887px; height: 362px; display: none; opacity: 0.5;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(145, 156, 164); border: 0px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 0px;"></div></div></div><table id="dataList" style="display: none;"></table><style type="text/css" easyui="true">
+.datagrid-cell-c1-id{width:19px}
+.datagrid-cell-c1-bzgfmc{width:149px}
+.datagrid-cell-c1-bzgfdm{width:99px}
+.datagrid-cell-c1-bzgfms{width:199px}
+.datagrid-cell-c1-sslbmc{width:79px}
+.datagrid-cell-c1-zhxgsj{width:79px}
+.datagrid-cell-c1-option{width:79px}
+</style></div><div class="datagrid-pager pagination"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td><a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-prev fa fa-chevron-left">&nbsp;</span></span></a></td><td class="pagination-links"><a class="pagination-link l-btn l-btn-small l-btn-plain l-btn-selected l-btn-plain-selected" href="javascript:void(0)" group="" id=""><span class="l-btn-left"><span class="l-btn-text">1</span></span></a></td><td><a href="javascript:void(0)" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-next fa fa-chevron-right">&nbsp;</span></span></a></td></tr></tbody></table><div class="pagination-info">&nbsp;&nbsp;共  12 条记录</div><div style="clear:both;"></div></div></div></div>
+				</td>
+			</tr>
+		</tbody></table>
+		<!-- 弹出层开始 -->
+		
+		
+		<div id="messager"></div>
+		<!-- 弹出层结束 -->
+	</div>
+
+<div class="panel combo-p" style="position: absolute; z-index: 10; display: none;"><div class="combo-panel panel-body panel-body-noheader" title=""><div id="_easyui_combobox_i2_0" class="combobox-item combobox-item-selected"><div title="全部">全部</div></div><div id="_easyui_combobox_i2_1" class="combobox-item"><div title="国家标准">国家标准</div></div><div id="_easyui_combobox_i2_2" class="combobox-item"><div title="交通部标准">交通部标准</div></div><div id="_easyui_combobox_i2_3" class="combobox-item"><div title="普通标准">普通标准</div></div><div id="_easyui_combobox_i2_4" class="combobox-item"><div title="行业标准">行业标准</div></div><div id="_easyui_combobox_i2_5" class="combobox-item"><div title="江苏省标准">江苏省标准</div></div></div></div><div class="panel window" style="display: none; width: 600px; left: 160px; top: 80px;"><div class="panel-header panel-header-noborder window-header" style="width: 598px;"><div class="panel-title panel-with-icon">新建标准规范</div><div class="panel-icon fa fa-reorder"></div><div class="panel-tool"><a class="panel-tool-close" href="javascript:void(0)"></a></div></div><div style="width: 598px; height: 334px;" class="easyui-dialog panel-body panel-body-noborder window-body" id="myWin" title="" resizable="false" data-options="modal:true,closed:true">
+			<iframe style="width: 100%; height: 100%;" id="panel" frameborder="0" src="./saved_resource.html"></iframe>
+		</div></div><div class="window-shadow" style="display: none; left: 160px; top: 80px; width: 600px; height: 360px;"></div><div class="window-mask" style="width: 920px; height: 519px; display: none;"></div><div class="panel window" style="display: none; width: 500px; left: 210px; top: 140px;"><div class="panel-header panel-header-noborder window-header" style="width: 498px;"><div class="panel-title panel-with-icon">导入标准规范</div><div class="panel-icon fa fa-reorder"></div><div class="panel-tool"><a class="panel-tool-close" href="javascript:void(0)"></a></div></div><div style="padding: 10px; width: 498px; height: 214px;" class="easyui-dialog panel-body panel-body-noborder window-body" id="uploadWin" title="" resizable="false" data-options="modal:true,closed:true,onBeforeClose:function(){$(&#39;#upload&#39;).form(&#39;reset&#39;);$(&#39;#fileName&#39;).html(&#39;&#39;);$(&#39;#uploadFile&#39;).linkbutton(&#39;disable&#39;);}">
+			<div class="row" style="margin:10px;">
+				<label for="file">文件: </label>
+				<form enctype="multipart/form-data" id="upload" method="post" action="http://218.3.177.181:8080/DM/portal/uploadExcel.do">
+					<input type="file" name="uploadTheFile" id="fileToUpload" onchange="fileSelected();" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="width: 300px">
+					<a id="uploadFile" href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small l-btn-disabled" data-options="iconCls:&#39;icon-save&#39;" style="float: right" onclick="uploadFile()" group=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">导入</span><span class="l-btn-icon icon-save">&nbsp;</span></span></a>
+				</form>
+				<p>本导入支持2007版本以上的Excel文档，后缀名为.xlsx,大小在2MB以下。 Excel文件的模板应从本平台下载。
+				</p>
+			</div>
+			<div id="fileName" style="padding: 10px"></div>
+		</div></div><div class="window-shadow" style="display: none; left: 210px; top: 140px; width: 500px; height: 240px;"></div><div class="window-mask" style="width: 920px; height: 519px; display: none;"></div><div id="ascrail2000" class="nicescroll-rails" style="width: 5px; z-index: auto; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none;"><div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(145, 156, 164); border: 0px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 0px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 5px; z-index: auto; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none;"><div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(145, 156, 164); border: 0px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 0px;"></div></div></body></html>

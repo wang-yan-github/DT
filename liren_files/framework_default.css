@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+/**表单控件 start */
+/**表单控件 end */
+
+/** 菜单功能 start*/
+
+.number_marked_n{
+	background-image: url('../images/common/number-marked-n.png');
+	color: white;
+}
+.number_marked_f{
+	background-image: url('../images/common/number-marked-f.png');
+	color: #8a9edf;
+}
+.arrow-left{
+	background-image: url("../images/common/default/arrow-left.png");
+}
+.arrow-down{
+	background-image: url("../images/common/default/arrow-down.png");
+}
+
+/** 菜单功能 end*/
+/** 解决方案 弹出框 start*/
+.window_css h4{
+	background-color: #F6FAF9;
+    color: #4D4D4D;
+}
+.window_cut_off{
+	border-bottom: 1px solid #9DB8D8;
+}
+.window_close_n{
+	background: url("../images/button/panel-close-n.png") no-repeat;
+}
+.window_close_n:hover{
+	background: url("../images/button/panel-close-f.png") no-repeat;
+}
+.window_close_f{
+	
+}
+/** 解决方案 弹出框 end*/
+/** 构件 start */
+.component_group_title_f{
+	background:#dae2eb;
+}
+.part_application_n{
+	background-image: url("../images/common/part-application-n.png");
+}
+.part_application_f{
+	background-image: url("../images/common/part-application-f.png");
+}
+/** 构件 end*/

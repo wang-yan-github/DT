@@ -1,0 +1,133 @@
+@CHARSET "UTF-8";
+.index_content_div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #f3f4f5;
+	overflow: hidden;
+	z-index: 999;
+}
+.index_content{
+	margin-left: 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 40px;
+	background: #FFFFFF;
+	overflow: hidden;
+}
+.containerpage{
+	float: left;
+	width: 880px;
+	height: 675px;
+	margin-top: 10px;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 40px;
+	padding-left: 72px;
+	padding-right: 72px;
+}
+.item{
+	width: 210px;
+	height: 225px;
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+}
+.item-div{
+	width: 210px;
+	height: 160px;
+	margin-top: 35px;
+}
+.item-image{
+	position: absolute;
+	margin: 5px;
+	width: 200px;
+	height: 150px;
+	background-repeat: round;
+	background-size: 200px 150px;
+	cursor: pointer;
+
+/*	-moz-box-shadow:0px 0px 3px 3px rgba(235,236,237,1);/*firefox*/
+/*	-webkit-box-shadow:0px 0px 3px 3px rgba(235,236,237,1);/*webkit*/
+/*	box-shadow:0px 0px 3px 3px rgba(235,236,237,1);/*opera或ie9*/
+/*	filter: progid:DXImageTransform.Microsoft.Shadow(color='#ebeced', Direction=135, Strength=3);/*for ie6,7,8*/
+}
+.item-span{
+	position: absolute;
+	top: 35px;
+	width: 210px;
+	height: 160px;
+	display: block;
+}
+.item-span-n{
+	background: url("../images/panel/apps-panelbg-n.png") no-repeat;
+}
+.item-span-f{
+	background: url("../images/panel/apps-panelbg-f.png") no-repeat;
+}
+.item-text{
+	width: 210px;
+	height: 30px;
+	line-height: 45px;
+	text-align: center;
+	font-family: 'microsoft yahei';
+	font-weight: bold;
+}
+#pre_page {
+	position: fixed;
+	top: 372px;
+	left: 0px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+.pre_page_n {
+	background: url("../images/button/2l-n.png") no-repeat;
+}
+#pre_page:hover {
+	background: url("../images/button/2l-f.png") no-repeat;
+}
+#next_page {
+	position: fixed;
+	top: 372px;
+	right: 0px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+.next_page_n {
+	background: url("../images/button/2r-n.png") no-repeat;
+}
+#next_page:hover {
+	background: url("../images/button/2r-f.png") no-repeat;
+}
+#page_number {
+	position: absolute;
+	top: 650px;
+	height: 10px;
+	padding: 0;
+	margin: 0;
+	float: left;
+	list-style-type: none;
+	text-align: center;
+	overflow: hidden;
+}
+#page_number li {
+	float: left;
+	margin-right: 8px;
+	right: 50%;
+	width: 10px;
+	height: 10px;
+	cursor: pointer;
+}
+.page_number_n {
+	background: url("../images/button/point-n.png") no-repeat;
+}
+.page_number_p {
+	background: url("../images/button/point-p.png") no-repeat;
+}

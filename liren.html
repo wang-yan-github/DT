@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>徐州交通数据管控系统</title>
+
+    <!-- CSS导入 -->
+    <link href="./liren_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/icon.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/jquery.qtip.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/framework_all.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/framework_default.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/header_default.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/menu_default.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/index.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/jquery.minicolors.css" rel="stylesheet" type="text/css">
+    <link href="./liren_files/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./liren_files/font-awesome/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .index_content_div{
+            background-color: #FFFFFF;
+        }
+    </style>
+<body style="font-family: 黑体;background-color: #FFFFFF">
+<!--主界面 -->
+<div class="all_background"></div>
+<div id="top_div" class="top_div">
+    <div style="float:left;width:254px;height:40px;margin-top:5px;margin-left:10px;background-image: url(liren_files/images/xzjt.png);"
+         id="logo"></div>
+    <div style="float:right;padding:13px 20px;cursor:pointer"><a onclick="logoutWithCas()">注销</a></div>
+</div>
+<div style="padding-top: 180px;background-color: #FFFFFF"></div>
+<div class="row" style="background-color: rgba(32, 199, 45, 0.3);">
+    <div class="col-md-1" style="padding: 0"></div>
+    <div class="col-md-5" style="padding: 0">
+        <div class="ibox">
+            <div class="ibox-content">
+                <br><br>
+                <p class="">
+                    <strong>徐州交通数据管控系统</strong></p>
+                <p class="">
+                    T697等交通数据元标准规范的预装；</p>
+                <p class="">
+                    实现对采集数据字段进行数据剖析，提供数据质量分析报告；</p>
+                <p class="">
+                    对数据采集交换过程的图形化、流程化实时监控，预警、任务重启等功能；</p>
+                <p class="">
+                    对已有业务系统的数据资源目录化管理；对数据库的表空间、预警操作日志等管理功能。</p>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 text-center" style="padding: 0">
+        <div class="contact-box center-version">
+            <a href="liren_files/yuan.html">
+                <img class="img-circle" src="./liren_files/images/apps-panelicon-callout-044.png">
+                <p><strong>元数据管理</strong></p>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-2" style="padding: 0">
+        <div class="contact-box center-version text-center">
+            <a href="liren_files/shujuzhiliang.html">
+                <img class="img-circle" src="./liren_files/images/apps-panelicon-camera-044.png">
+                <p><strong>数据质量管理</strong></p>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-2" style="padding: 0">
+        <div class="contact-box center-version text-center">
+            <a href="liren_files/shujuku.html">
+                <img class="img-circle" src="./liren_files/images/apps-panelicon-police2-044.png">
+                <p><strong>数据库管理</strong></p>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-2" style="padding: 0">
+        <div class="contact-box center-version text-center">
+            <a href="liren_files/jiaohuanrenwu.html">
+                <img class="img-circle" src="./liren_files/images/apps-panelicon-system-066.png">
+                <p><strong>交换任务管理</strong></p>
+            </a>
+        </div>
+    </div>
+</div>
+<div style="padding-top: 110px;"></div>
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<link href="./liren_files/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<!--单点登录注销操作-->
+<script type="text/javascript">
+    //取cookies函数
+    function getCookie(name) {
+        var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+        if (arr != null) return unescape(arr[2]);
+        return null;
+    }
+
+    //删除cookie
+    function delCookie(name) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval = getCookie(name);
+        if (cval != null) {
+            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+        }
+    }
+
+    //清除cookie并跳转
+    function logoutWithCas() {
+        delCookie("JSESSIONID");
+        location.href = "http://10.13.200.207:8080/cas-server/logout?service=http://10.13.18.185:8080";
+    }
+</script>
+</body>
+</html>

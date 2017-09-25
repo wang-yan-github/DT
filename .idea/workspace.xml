@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b46bcc3b-97dc-4a5f-8f02-62a82a1f1fa2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/fonts/fontawesome-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-044.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-callout-07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-044.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-camera-07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-044.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-police2-07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-04.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-066.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-08.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-12.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/apps-panelicon-system-14.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/images/xzjt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/DT.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/preferred-vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap-theme.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/bootstrap/js/npm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/css/zzsc.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/easyui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/HELP-US-OUT.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/css/font-awesome.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/animated.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/bordered-pulled.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/core.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/fixed-width.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/font-awesome.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/icons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/larger.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/list.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/mixins.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/path.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/rotated-flipped.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/screen-reader.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/stacked.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/less/variables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_animated.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_bordered-pulled.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_core.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_fixed-width.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_icons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_larger.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_list.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_path.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_rotated-flipped.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_screen-reader.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_stacked.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/font-awesome/scss/font-awesome.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/framework_all.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/framework_default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/header_default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/icon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/index.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/jiaohuanrenwu.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/jquery.mCustomScrollbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/jquery.minicolors.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/jquery.qtip.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/menu_default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/shujuku.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/shujuzhiliang.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/WdatePicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/button.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/bzgf_listAll.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/easyui(1).css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/easyui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/font-awesome.min(1).css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/framework.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/framework_all.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/framework_default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/header_default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/icon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/index.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/jquery.mCustomScrollbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/jquery.minicolors.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/jquery.qtip.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/menu_default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/liren_files/yuan_files/saved_resource.html" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <ignored path="$PROJECT_DIR$/.idea/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="liren.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/liren.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>index_content_div</find>
+      <find>元数据管理</find>
+      <find>col-md-5</find>
+      <find>col-md</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/liren.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DT" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b46bcc3b-97dc-4a5f-8f02-62a82a1f1fa2" name="Default" comment="" />
+      <created>1506308206950</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1506308206950</updated>
+      <workItem from="1506308208337" duration="9349000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="9349000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24404761" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33990148" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/liren_files/bootstrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="4" column="26382" lean-forward="false" selection-start-line="4" selection-start-column="26382" selection-end-line="4" selection-end-column="26382" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/liren.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

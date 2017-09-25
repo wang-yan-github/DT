@@ -1,0 +1,632 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd>
+<!-- saved from url=(0048)http://10.13.18.183:8080/DT/framework/framework.jsp -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>里仁数据管控治理系统</title>
+
+    <!-- CSS导入 -->
+    <link href="./yuan_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/easyui.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/icon.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/jquery.qtip.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/framework_all.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/framework_default.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/header_default.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/menu_default.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/index.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/jquery.minicolors.css" rel="stylesheet" type="text/css">
+    <link href="./yuan_files/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="./yuan_files/jquery.min.js"></script>
+    <!--
+    <script type="text/javascript" src="./yuan_files/framework.js"></script>
+    -->
+    <style type="text/css">
+        .acco_box {
+            width: 230px;
+            border: 1px solid #a0b3d6;
+        }
+
+        .acco_title {
+        	  cursor: pointer;
+            line-height: 26px;
+            padding-left: 10px;
+            font-size: 14px;
+            background-color: #2abba3;
+            border-bottom: 1px solid #beceeb;
+        }
+
+        .acco_title_on {
+        	  cursor: pointer;
+            background-color: #2abba3;
+        }
+
+        .acco_content {
+            height: 0;
+            padding: 0 10px;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+            overflow: hidden;
+            background-color: #e5e7e9;
+        }
+
+        .solution_name {
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+    </style>
+    <boby>
+
+        <!--主界面 -->
+        <div class="index_content_div" style="overflow: hidden; width: 0px;">
+            <div class="index_content" style="margin-left: 0px; width: 1516px; padding-top: 110px;">
+                <div class="containerpage" style="margin-left: 246px; margin-right: 246px; margin-top: -28.5px;">
+                    <div class="item">
+                        <div class="item-div">
+                            <span class="item-span item-span-n"></span>
+                            <div class="item-image"
+                                 style="background-image: url(/DT/uploadFils/pics/apps-panelicon-callout-02.png);">
+                            </div>
+                        </div>
+                        <div class="sidebar_div solution_div_sidebar_parent_li_n">
+                            <div class="item-text wordspan solution_name">元数据管理</div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-div">
+                            <span class="item-span item-span-n"></span>
+                            <div class="item-image"
+                                 style="background-image: url(/DT/uploadFils/pics/apps-panelicon-camera-02.png);">
+                            </div>
+                        </div>
+                        <div class="item-text">数据质量管理</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-div">
+                            <span class="item-span item-span-n"></span>
+                            <div class="item-image"
+                                 style="background-image: url(/DT/uploadFils/pics/apps-panelicon-system-06.png);">
+                            </div>
+                        </div>
+                        <div class="item-text">数据库管理</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-div">
+                            <span class="item-span item-span-n"></span>
+                            <div class="item-image"
+                                 style="background-image: url(/DT/uploadFils/pics/apps-panelicon-police2-03.png);">
+                            </div>
+                        </div>
+                        <div class="item-text">交换任务管理</div>
+                    </div>
+                </div>
+            </div>
+            <div id="pre_page" class="pre_page_n" style="top: 334.5px; left: 246px; display: none;"></div>
+            <div id="next_page" class="next_page_n" style="top: 334.5px; right: 246px; display: none;"></div>
+            <ul id="page_number" style="top: 741.5px; left: 246px; margin-left: 508px;">
+                <li class="page_number_p"></li>
+            </ul>
+            <div class="button-group">
+                <button class="">4×3</button>
+                <button class="is-checked">4×2</button>
+            </div>
+        </div>
+        <div class="all_background"></div>
+        <div id="top_div" class="top_div">
+            <div style="width:254px;height:40px;margin-top:0px;margin-left:10px;background-image: url(&#39;./../images/top/default/xzjt.png&#39;);"
+                 id="logo"><a href="./../images/top/default/xzjt.png"></a></div>
+            <div id="tools">
+                <div id="styleSettingDiv" class="settingDiv_n">
+                    <div id="styleSetting" class="styleSettingCls brush-n" title="选择颜色方案"></div>
+                </div>
+                <ul class="dropdown-menu menu-arrow" id="styleSetting-menu">
+                    <li>
+                        <label>顶部栏的颜色</label>
+                        <ul class="header-color-variation demo-color-variation">
+                            <!--<li><a class="color-dark" data-headertheme="header_dark.css"></a></li>-->
+                            <li><a class="color-default" data-headertheme="header_default.css"></a></li>
+                            <li><a class="color-blue" data-headertheme="header_blue.css"></a></li>
+                            <li><a class="color-orange" data-headertheme="header_orange.css"></a></li>
+                            <li><a class="color-deepblue" data-headertheme="header_deepblue.css"></a></li>
+                            <li><a class="color-red" data-headertheme="header_red.css"></a></li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <label>导航栏的颜色</label>
+                        <ul class="sidebar-color-variation demo-color-variation">
+                            <li><a class="color-default" data-theme="menu_default.css"></a></li>
+                            <li><a class="color-gray" data-theme="menu_gray.css"></a></li>
+                            <!--<li><a class="color-dark" data-theme="menu_dark.css"></a></li>-->
+                        </ul>
+                    </li>
+                </ul>
+                <div id="homeVisitDiv" class="settingDiv_n">
+                    <div id="homeVisit" class="editCls home-n" title="首页">
+                    	<!--<a href="http://10.13.18.183:8080/DT/liren.html">
+                    	</a>-->
+                   </div>
+                </div>
+                <div id="sysEditDiv" class="settingDiv_n">
+                    <div id="sysEdit" class="editCls edit-n" title="编辑解决方案"></div>
+                </div>
+                <div id="sysSettingDiv" class="settingDiv_n">
+                    <div id="sysSetting" class="settingCls setting-n" title="系统管理"></div>
+                </div>
+                <div id="favoriteDiv" class="settingDiv_n" style="display: none;">
+                    <div id="favoriteSetting" class="favoriteCls favorite-n" title="解决方案喜好设置"></div>
+                </div>
+                <div id="userInfoTopDiv" class="userInfoTopCls">
+                    <div id="userNameDiv" class="userNameCls"><a href="http://10.13.18.183:8080/DT/liren.html"
+                                                                 style="position:fixed;right:20px;" title="返回首页"><img style="margin-right: 80px;border: 10px;position: relative;bottom: -8px;" src="./../images/top/home.png")"/></a></div>
+                    <div id="userPicDiv" class="userPicCls"></div>
+
+                    <ul class="userInfo-dropdown-menu menu-arrow" id="userInfo-menu" style="display:none;">
+                        <!--<li>
+                            <label>个人信息</label>
+                        </li>-->
+                        <li>
+                            <label id="save" style="color: rgb(51, 51, 51);">保存</label>
+                        </li>
+                        <li>
+                            <label id="logout">注销</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 40px;">
+            <div id="working" style="width: 1286.11px; height: 100%; left: 229.89px;">
+                <div class="solution_workspace_url" style="width: 1286px; height: 100%; left: 0px; top: 0px;">
+                    <div class="frameTitle frameTitleBorder"
+                         style="background-color: rgb(229, 231, 233); display: block; width: 1284.78px;">
+                        <span style="font-size:13px" id='span_msg'>数据源管理</span>
+                        <span class="frame_title_close frame_title_close_n" style="display: none;"></span>
+                        <span class="frame_title_config frame_title_config_n" style="display: none; right: 0px;"></span>
+                    </div>
+                    <div class="iframeforurl">
+                        <div class="iframe_loading" style="display: none;"></div>
+                        <iframe id="myiframe" style="width: 1136px; height: 560px; left: 230px;"
+                                frameborder="0"
+                                marginwidth="0" marginheight="0" scrolling="auto"
+                                src="http://10.13.18.183:8080/DM/portal/t_meta_datasource_d.jsp"></iframe>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="acco_box">
+                <div class="acco_title acco_title_on solution_div_sidebar_child_li_n" lang="accoContent_1">元数据管理</div>
+                <div id="accoContent_1" class="acco_content" style="height:220px;padding:0px;">
+                    <!-- <p>数据源管理
+                        标准规范管理
+                        标准值域管理
+                        数据资源目录
+                        标准符合性审查
+                        数据服务管理</p> -->
+                    <p><a class="solution_name" title="" id="shujuyuan" onclick="dianji('shujuyuan')">数据源管理</a></p>
+                    <p><a class="solution_name" title="" id="biaozhunguifan" onclick="dianji('biaozhunguifan')">标准规范管理</a></p>
+                    <p><a class="solution_name" title="" id="biaozhuizhiyu" onclick="dianji('biaozhuizhiyu')">标准值域管理</a></p>
+                    <p><a class="solution_name" title="" id="shujuziyuan" onclick="dianji('shujuziyuan')">数据资源目录</a></p>
+                    <p><a class="solution_name" title="" id="biaozhunfuhe" onclick="dianji('biaozhunfuhe')">标准符合性审查</a></p>
+                    <p><a class="solution_name" title="" id="shujufuwu" onclick="dianji('shujufuwu')">数据服务管理</a></p>
+                </div>
+                <div class="acco_title" lang="accoContent_2">数据质量管理</div>
+                <div id="accoContent_2" class="acco_content" style="padding:0px;">
+                    <!-- <p>数据剖析
+                        数据质量评估
+                        自定义剖析
+                        备注剖析管理
+                        自定义数据内容剖...
+                        自定义剖析统计</p> -->
+                    <p><a class="solution_name" title="" id="shujupaoxi" onclick="dianji('shujupaoxi')">数据剖析</a></p>
+                    <p><a class="solution_name" title="" id="shujuzhiliang" onclick="dianji('shujuzhiliang')">数据质量评估</a></p>
+                    <p><a class="solution_name" title="" id="zidingyipaoxi" onclick="dianji('zidingyipaoxi')">自定义剖析</a></p>
+                    <p><a class="solution_name" title="" id="beizhupaoxi" onclick="dianji('beizhupaoxi')">备注剖析管理</a></p>
+                    <p><a class="solution_name" title="" id="zidingyishuju" onclick="dianji('zidingyishuju')">自定义数据内容剖析</a></p>
+                    <!--<p><a class="solution_name" title="" onclick="dianji('zidingyitongji')">自定义剖析统计</a></p>
+        -->        </div>
+                <div class="acco_title" lang="accoContent_3">数据库管理</div>
+                <div id="accoContent_3" class="acco_content" style="padding:0px;">
+                    <!-- <p>表空间管理
+                        预警操作日志管理
+                        常规操作日志管理
+                        数据库表数据增长情况分析</p> -->
+                    <p><a class="solution_name" title="" id="biaokongjian" onclick="dianji('biaokongjian')">表空间管理</a></p>
+                    <p><a class="solution_name" title="" id="yujing" onclick="dianji('yujing')">预警操作日志管理</a></p>
+                    <p><a class="solution_name" title="" id="changgui" onclick="dianji('changgui')">常规操作日志管理</a></p>
+                    <p><a class="solution_name" title="" id="shujuku" onclick="dianji('shujuku')">数据库表数据增长情况分析</a></p>
+                </div>
+                <div class="acco_title" lang="accoContent_4">交换任务管理</div>
+                <div id="accoContent_4" class="acco_content" style="padding:0px;">
+                    <!-- <p>任务运行
+                        任务基本信息
+                        调度策略管理
+                        历史日志</p> -->
+                    <p><a class="solution_name" title="" id="renwuyunxing" onclick="dianji('renwuyunxing')">任务运行</a></p>
+                    <p><a class="solution_name" title="" id="renwujiben" onclick="dianji('renwujiben')">任务基本信息</a></p>
+                    <p><a class="solution_name" title="" id="diaoducelue" onclick="dianji('diaoducelue')">调度策略管理</a></p>
+                     <p><a class="solution_name" title="" id="shujujiaohuan" onclick="dianji('shujujiaohuan')">数据交换</a></p>
+                    <p><a class="solution_name" title="" id="lishirizhi" onclick="dianji('lishirizhi')">历史日志</a></p>
+                </div>
+            </div>
+
+
+            <div id="menu_div" class="menu_div" style="height: 654px; overflow: hidden; width: 230px;">
+                <div id="menu_operate_div" class="menu_operate_div_border" style="display: none">
+                    <div id="menu_operate" class="menu_operate_left">
+                        <div id="solutions"><span>解决方案</span></div>
+                        <div id="components"><span>构件</span></div>
+                    </div>
+                    <div id="solutions_add" class="solutions_add icon-plus" title="点击新增"></div>
+                </div>
+                <div id="menu_ul_parent" class="mCustomScrollbar _mCS_1 menu_ul_parent" style="height: 654px;">
+                    <div class="mCustomScrollBox mCS-light" id="mCSB_1"
+                         style="position: relative; height: 100%; overflow: hidden; max-width: 100%;">
+                        <div class="mCSB_container mCS_no_scrollbar" style="position: relative; top: 0px;">
+                            <ul id="solution_div_sidebar" class="ui-sortable ui-sortable-disabled" style="">
+                                <!--
+                                    <li solutionid="1" parentid="0" orderby="2" class="hasChild firstparent solution_div_sidebar_parent_li_n mouthopen active" style="width: 230px;">
+                                        <div class="sidebar_div solution_div_sidebar_parent_li_n">
+                                            <span class="solutionpic" iconnormal="def_n.png" iconselect="def_s.png" style="background-image: url(&quot;/DT/uploadFils/icons/def_s.png&quot;);"></span>
+                                            <span class="arrow arrow-down" style="display: inline;"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="wordspan solution_name" title="" style="display: inline;" onclikc="dianji('shujuyuan')">元数据管理</a>
+                                        </div>
+
+                                <div style="height:800px;overflow:auto">
+                                        <ul class="solution_div_sidebar_child firstparentul mCS_destroyed solution_div_sidebar_child_click" style="height:auto;top: 0px;overflow:hidden; display: block;">
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('shujuyuan')">数据源管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhunguifan')">标准规范管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhuizhiyu')">标准值域管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('shujuziyuan')">数据资源目录</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhunfuhe')">标准符合性审查</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('shujufuwu')">数据服务管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('shujupaoxi')">数据剖析</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('shujuzhiliang')">数据质量评估</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('zidingyipaoxi')">自定义剖析</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('beizhupaoxi')">备注剖析管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('zidingyishuju')">自定义数据内容剖析</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaokongjian')">表空间管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('yujing')">预警操作日志管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('changgui')">常规操作日志管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('shujuku')">数据库表数据增长情况分析</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('renwuyunxing')">任务运行</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('renwujiben')">任务基本信息</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('diaoducelue')">调度策略管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('lishirizhi')">历史日志</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('zidingyitongji')">自定义剖析统计</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhunguifan')">数据源管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhunguifan')">数据源管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhunguifan')">数据源管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhunguifan')">数据源管理</a>
+                                        </div>
+                                    </li>
+                                    <li solutionid="2" parentid="1" orderby="3" class="solution_div_sidebar_child_li_n active" style="width: 230px;">
+                                        <div class="solution_div_sidebar_child_li_n">
+                                            <span class="tools-delete tools-delete-n icon-trash"></span>
+                                            <span class="tools-rename tools-rename-n icon-pencil"></span>
+                                            <a class="solution_name" title="" onclick="dianji('biaozhunguifan')">数据源管理</a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                -->
+                        </div>
+                        <ul id="component_div_sidebar">
+                        </ul>
+                    </div>
+                    <div class="mCSB_scrollTools" style="position: absolute; display: none; z-index: 999;">
+                        <div class="mCSB_draggerContainer">
+                            <div class="mCSB_dragger" style="position: absolute; top: 0px;"
+                                 oncontextmenu="return false;">
+                                <div class="mCSB_dragger_bar" style="position:relative;"></div>
+                            </div>
+                            <div class="mCSB_draggerRail"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+
+        </body>
+</html>
+
+<script type="text/javascript">
+    function dianji(i) {
+    	//document.getElementsByClassName("solution_name").style.color="#4D4D4D";
+    	document.getElementById("shujuyuan").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("biaozhunguifan").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("biaozhuizhiyu").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("shujuziyuan").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("biaozhunfuhe").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("shujufuwu").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("shujupaoxi").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("diaoducelue").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("renwujiben").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("renwuyunxing").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("lishirizhi").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("shujuku").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("changgui").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("yujing").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("biaokongjian").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("zidingyishuju").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("beizhupaoxi").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("zidingyipaoxi").parentNode.style.backgroundColor="#e5e7e9";
+    	document.getElementById("shujuzhiliang").parentNode.style.backgroundColor="#e5e7e9";
+		document.getElementById("shujujiaohuan").parentNode.style.backgroundColor="#e5e7e9";
+
+        if (i == 'shujuyuan') {                    //http://10.13.18.183:8080/DM/portal/t_meta_datasource_d.jsp
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/t_meta_datasource_d.jsp";
+            document.getElementById('span_msg').innerText = "数据源管理"; 
+        } else if (i == 'biaozhunguifan') {         //http://10.13.18.183:8080/DM/portal/bzgf/bzgf_listAll.jsp
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/bzgf/bzgf_listAll.jsp	";
+            document.getElementById('span_msg').innerText = "标准规范管理";
+        } else if (i == 'biaozhuizhiyu') {		     //http://10.13.18.183:8080/DM/portal/ggzy/ggzy_tree.jsp
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/ggzy/ggzy_tree.jsp	";
+            document.getElementById('span_msg').innerText = "标准值域管理";
+        } else if (i == 'shujuziyuan') {			// http://10.13.18.183:8080/DM/portal/t_metadata_manage.jsp
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/t_metadata_manage.jsp ";
+            document.getElementById('span_msg').innerText = "数据资源目录"; 
+        } else if (i == 'biaozhunfuhe') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/bzgf/bzgfzdjy_listAll.jsp ";
+            document.getElementById('span_msg').innerText = "标准符合性审查";  
+        } else if (i == 'shujufuwu') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/sjfw/sjfw_tree.jsp   ";
+            document.getElementById('span_msg').innerText = "数据服务管理";            
+        } else if (i == 'shujupaoxi') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/jobListener/sjpx/sjpx_pxslList.jsp ";
+            document.getElementById('span_msg').innerText = "数据剖析";            
+        } else if (i == 'shujuzhiliang') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/zlpg/zlpg_listAll.jsp ";
+            document.getElementById('span_msg').innerText = "数据质量评估";            
+        } else if (i == 'zidingyipaoxi') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/zdyPxsl/zdyPxsl_tree.jsp ";
+            document.getElementById('span_msg').innerText = "自定义剖析";
+        } else if (i == 'beizhupaoxi') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/bzpx/table_bzpx.jsp ";
+            document.getElementById('span_msg').innerText = "备注剖析管理";      
+        } else if (i == 'zidingyishuju') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/sjnrPx/sjnrPx_listAll.jsp";
+            document.getElementById('span_msg').innerText = "自定义数据内容剖析"; 
+        } else if (i == 'biaokongjian') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/tableSpace.jsp ";
+            document.getElementById('span_msg').innerText = "表空间管理"; 
+        } else if (i == 'yujing') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/czrz/yjcz_listAll.jsp";
+            document.getElementById('span_msg').innerText = "预警操作日志管理";         
+        } else if (i == 'changgui') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/czrz/cgcz_listAll.jsp ";
+            document.getElementById('span_msg').innerText = "常规操作日志管理";
+        } else if (i == 'shujuku') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/jobListener/dataStatistical/dataStatistical.jsp ";
+            document.getElementById('span_msg').innerText = "数据库表数据增长情况分析";
+        } else if (i == 'renwuyunxing') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/jobListener/job_listAll.jsp?jobType=all ";
+            document.getElementById('span_msg').innerText = "任务运行";
+        } else if (i == 'renwujiben') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/jobListener/job_tree.jsp?jobType=all	 ";
+            document.getElementById('span_msg').innerText = "任务基本信息";
+        } else if (i == 'diaoducelue') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/jobListener/schedule_listAll.jsp";
+            document.getElementById('span_msg').innerText = "调度策略管理";
+        } else if (i == 'lishirizhi') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/jobListener/log_listAll.jsp ";
+            document.getElementById('span_msg').innerText = "历史日志";          
+        } else if (i == 'zidingyitongji') {
+            document.getElementById('myiframe').src = "http://10.13.18.183:8080/DM/portal/zdyPxsl/zdyPxsl_tj.jsp";
+            document.getElementById('span_msg').innerText = "自定义剖析统计";
+        } else if(i == 'shujujiaohuan'){
+        	document.getElementById('myiframe').src = "http://10.13.18.183:8080/ddm/";
+            document.getElementById('span_msg').innerText = "数据交换";
+        }
+        document.getElementById(i).parentNode.style.backgroundColor="#919ca4";
+    }
+
+
+    var $$ = function (selector) {
+        var cl, id, alls, arrEle = [];
+        if (/^\./.test(selector)) {
+            cl = selector.replace(".", "");
+            alls = document.getElementsByTagName("*"), l = alls.length;
+            for (var i = 0; i < l; i += 1) {
+                var name = alls[i].className, arrName = [];
+                if (name) {
+                    arrName = name.split(" "), lName = arrName.length;
+                    for (var j = 0; j < lName; j += 1) {
+                        if (arrName[j] === cl) {
+                            arrEle.push(alls[i]);
+                        }
+                    }
+                }
+            }
+        } else if (/^#/.test(selector)) {
+            id = selector.replace("#", "");
+            var o = document.getElementById(id);
+            if (o) {
+                arrEle.push(o);
+            }
+        }
+        return arrEle;
+    };
+    //点击方法
+    Array.prototype.click = function (fn) {
+        var l = this.length;
+        if (l) {
+            for (var i = 0; i < l; i += 1) {
+                this[i].onclick = function () {
+                    fn.call(this);
+                };
+            }
+        }
+    };
+    //执行点击
+    $$(".acco_title").click(function () {
+        var rel = this.lang, cl = this.className, oOn = $$(".acco_title_on")[0], rel_on = oOn.lang;
+        if (!/on/.test(cl) && rel && rel_on) {
+            $$("#" + rel)[0].style.height = "210px";
+            $$("#" + rel_on)[0].style.height = "0";
+            this.className = "acco_title acco_title_on";
+            oOn.className = "acco_title";
+        }
+    });
+
+    // 关闭功能
+    function winClose() {
+        window.location.href = "about:blank";
+        window.close();
+    }
+</script>

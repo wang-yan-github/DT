@@ -1,0 +1,203 @@
+@CHARSET "UTF-8";
+.panel-body{
+	border: 1px solid #ddd;
+}
+.panel-header{
+	background: #2abba3;
+}
+.datagrid-htable {
+	border-right: medium none;
+}
+.datagrid-btable {
+	border-top: 0;
+	border-left: 0px solid #2abba3;
+	border-right: 0px solid #2abba3;
+} 
+a.l-btn span span.l-btn-icon-left{
+	padding: 0;
+}
+a.l-btn span span.l-btn-icon-left:before{
+	padding: 0 5px;
+}
+.datagrid-header-row, .datagrid-row{
+	border-left: 1px solid #2abba3;
+}
+a:hover.l-btn-plain{
+	/*background: #e6e6e6;
+	border: 1px solid #e6e6e6;*/
+}
+.datagrid-mask-msg{
+	line-height: 0px;
+}
+.datagrid .datagrid-pager{
+	display: block;
+}
+/*.datagrid-toolbar .icon-plus:before{
+	color: #2abba3;
+}
+.datagrid-toolbar .icon-edit:before{
+	color: #2abba3;
+}
+.datagrid-toolbar .icon-remove:before{
+	color: #2abba3;
+}*/
+.icon-plus{
+	background: none;
+}
+.icon-edit{
+	background: none;
+}
+.icon-remove{
+	background: none;
+}
+.pagination-first {
+  background: url('../images/pagination/pagination_icons_green.png') no-repeat 0 0;
+}
+.pagination-prev {
+  background: url('../images/pagination/pagination_icons_green.png') no-repeat -16px 0;
+}
+.pagination-prev {
+  background: none;
+}
+.pagination-next {
+  background: none;
+}
+.pagination-last {
+  background: url('../images/pagination/pagination_icons_green.png') no-repeat -48px 0;
+}
+.pagination-load {
+  background: url('../images/pagination/pagination_icons_green.png') no-repeat -64px 0;
+}
+.cds-button {
+	background: #2abba3;
+	color: #fff;
+	text-shadow: 0 0 #fff;
+}
+.cds-button:hover {
+	background-color: #43d5bd;
+	color: #fff;
+	text-decoration: none;
+}
+.cds-button:active {
+	background-color: #21917f;
+	color: #fff;
+	text-decoration: none;
+}
+.cds-button-cancel{
+	color: #2abba3;
+	cursor: pointer;
+	vertical-align: middle;
+	font-size: 12pt;
+}
+.cds-button-cancel:hover{
+	color: #21917f;
+	text-decoration: none;
+}
+.cds-button-cancel:focus{
+	color: #21917f;
+	text-decoration: none;
+}
+.cds-stepper .stepper-control {
+	background: #2abba3;
+	color: #fff;
+}
+.cds-stepper .stepper-control:hover{
+	background: #43d5bd;
+}
+.cds-stepper .stepper-control:active{
+	background: #21917f;
+}
+
+
+.pagination-links .l-btn-text{
+	color:#2abba3;
+}
+.l-btn-plain:hover{
+	border:none;
+	padding:1px;
+	background: #e6e6e6;
+}
+.l-btn-plain-selected, .l-btn-plain-selected:hover {
+    background: none repeat scroll 0 0 #43d5bd;
+}
+.l-btn-selected, .l-btn-selected:hover {
+    background: none repeat scroll 0 0 #2abba3;
+    filter: none;
+}
+.l-btn-selected .l-btn-text, .l-btn-selected:hover .l-btn-text{
+	color:#fff;
+}
+
+.messager-button .messager-button-ok{
+	background: none repeat scroll 0 0 #2abba3;
+    color: #fff;
+    border: medium none;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 12px;
+    height: 28px;
+    line-height: 26px;
+    width: 80px;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    float:right;
+}
+.messager-button .messager-button-ok:hover{
+	background: #43d5bd;
+}
+.messager-button .messager-button-cancle{
+	float:right;	
+}
+.messager-button .messager-button-cancle .l-btn-text{
+	color:#2abba3;
+}
+.messager-button .messager-button-ok .l-btn-text {
+    color: #fff;
+}
+.messager-button .messager-button-cancle:hover{
+    background-color: #fff;
+}
+.messager-button .messager-button-cancle:hover .l-btn-text{
+    color:#21917f;
+}
+
+.WdateDiv .WdayOn{
+	cursor:pointer;
+	background-color:#2abba3;
+	color: #fff;
+}
+.WdateDiv .Wselday{
+	background-color:#2abba3;
+	color: #fff;
+}
+.WdateDiv .MTitle{
+	background-color:#fff;
+	color:#2abba3;
+}
+.WdateDiv .Wtoday {
+    color: #2abba3;
+    cursor: pointer;
+}
+.WdateDiv .WdayTable{
+	border:0;
+}
+.WdateDiv .menuOn {
+    background-color: #2abba3;
+    cursor: pointer;
+    color:#fff;
+}
+/*右键菜单*/
+#rMenu li:hover{
+	background-color: #2abba3;
+	color:#fff;
+}
+#rMenu li:hover .pic-area{
+	background-color: #2abba3;
+	color:#fff;
+}
+#rMenu li:hover .fun-area{
+	background-color: #2abba3;
+	color:#fff;
+}

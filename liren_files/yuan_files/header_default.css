@@ -1,0 +1,118 @@
+@CHARSET "UTF-8";
+.top_div {
+	background: #2abba3;
+}
+.control_n {
+	background: #2abba3;
+	border-right: #cccccc 1px solid;
+}
+.settingDiv_n {
+	height: 40px;
+	float: left;
+	margin: 0px;
+	cursor: pointer;
+}
+.settingDiv_s {
+	height: 40px;
+	float: left;
+	margin: 0px;
+	background: #21917f;
+	cursor: pointer;
+}
+#solution_div_sidebar > li.active > .sidebar_div{
+	background: #2abba3;
+	color: white;
+	/*box-shadow: inset -1px 0 0 0 rgba(0, 0, 0, 0.1);*/
+}
+
+.tools-rename-n{
+/*	background-image: url("../images/common/blue/tools-rename.png");*/
+	color: #2abba3;
+}
+.tools-rename-s{
+/*	background-image: url("../images/common/tools-rename-s.png");*/
+	color: #fff;
+}
+.tools-delete-n{
+/*	background-image: url("../images/common/blue/tools-delete.png");*/
+	color: #2abba3;
+}
+.tools-delete-s{
+/*	background-image: url("../images/common/tools-delete-s.png");*/
+	color: #fff;
+}
+#menu_operate{
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+.menu_operate_left>#solutions{
+/*	background: url("../images/button/blue/Toggle-Switch_left.png");*/
+	background: #2abba3;
+	border-radius: 2px;
+	color: #fff;
+}
+.menu_operate_right>#components{
+/*	background: url("../images/button/blue/Toggle-Switch_right.png");*/
+	background: #2abba3;
+	border-radius: 2px;
+	color: #fff;
+}
+.solutions_add{
+/*	background: url("../images/button/blue/tools-add.png") no-repeat;*/
+	color: #2abba3;
+}
+.solutions_add:hover{
+	color: #43d5bd;
+}
+.solutions_add:active{
+	color: #21917f;
+}
+
+.button-03-n{
+	background: #2abba3;
+}
+.button-03-f{
+	background: #43d5bd;
+}
+.button-03-p{
+	background: #21917f;
+}
+.buttonX-n{
+	background: #2abba3;
+}
+.buttonX-n:hover{
+	background: #43d5bd;
+}
+.buttonX-n:active{
+	background: #21917f;
+}
+.textInput-n{
+	border: 1px solid #bbc2c7;
+}
+.textInput-p{
+	border: 1px solid #2abba3;
+}
+.button-group button:hover {
+	background-color: #43d5bd;
+	text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+	color: #fff;
+}
+.button-group button:active, .button-group button.is-checked {
+	background-color: #2abba3;
+}
+/**新建解决方案（组）下拉树选中行样式**/
+.combo-panel .tree .tree-node-selected{
+	background: #e5e7e9;
+}
+/**喜好设置中树选中行样式**/
+#solution_tree .tree-node-selected{
+	background: #e5e7e9;
+}
+/**喜好设置中树勾选样式**/
+#solution_tree .tree-checkbox1{
+	background: url("../images/button/dark/checkbox-s.png") no-repeat
+}
+/**选择模板下拉框样式**/
+.combobox-item-selected{
+	background: #e5e7e9;
+}
